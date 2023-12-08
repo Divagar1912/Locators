@@ -1,0 +1,77 @@
+Selenium Locators
+
+ID:
+name
+email
+password
+mobileNumber
+mobile-sign
+
+ClassName:
+signup-btn
+form-control password-err
+form-control countrycode-left
+
+
+TagName:
+a
+h2
+input
+
+
+CSSselector:
+input#mobileNumber
+
+Xpath:
+//input[@id='name']
+//input[@id='email']
+//a[normalize-space()='Login']
+//input[@id='password']
+//input[@id='mobileNumber']
+//a[@class='signup-btn']
+
+Script:
+
+package SeleniumConcepts.org.guvi;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Selenium_Locators {
+	
+	public static void main(String[] args) throws InterruptedException {
+
+
+
+		WebDriverManager.chromedriver().setup();
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().deleteAllCookies();
+		
+		driver.get("https://www.guvi.in/register");
+		Thread.sleep(2000);
+		
+		WebElement fullname = driver.findElement(By.id("name"));
+		fullname.sendKeys("Diva");
+		Thread.sleep(2000);
+		
+		WebElement password = driver.findElement(By.id("password"));
+		password.sendKeys("123456");
+		Thread.sleep(2000);
+		
+		WebElement number = driver.findElement(By.xpath("//input[@id='mobileNumber']"));
+		number.sendKeys("9587451");
+		Thread.sleep(2000);
+		
+		driver.close();
+		
+		
+	}	
+
+}
+
